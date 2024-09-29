@@ -8,8 +8,6 @@
 
     nur.url = "github:nix-community/NUR";
 
-    nixos-wsl.url = "github:nix-community/NixOS-WSL";
-    nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
   };
 
    outputs = inputs:
