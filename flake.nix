@@ -14,19 +14,7 @@
 
    outputs = inputs:
     with inputs; let {
-    nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        hostname = "nixos-wsl";
-        username = "adrian";
-        modules = [
-          nixos-wsl.nixosModules.default
-          {
-            system.stateVersion = "24.05";
-            wsl.enable = true;
-          }
-        ];
-      };
-    };
+   
+
   };
 }
