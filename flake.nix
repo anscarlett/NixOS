@@ -11,7 +11,7 @@
 
   outputs = { nixpkgs, home-manager, nur, ... }: let
     findUserdataNixFiles = dir: builtins.filter (file: builtins.pathExists file) (builtins.attrValues (builtins.readDir dir));
-    users = map (path: { name = builtins.baseNameOf (builtins.dirOf path); path = path; }) (findUserdataNixFiles "${__curDir}/homes");
+    users = map (path: { name = builtins.baseNameOf (builtins.dirOf path); path = path; }) (findUserdataNixFiles "${curDir}/homes");
 
     generateHomeManagerConfig = user: {
       imports = [ user.path ];
