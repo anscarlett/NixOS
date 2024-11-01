@@ -13,6 +13,7 @@
     findUserdataNixFiles = dir: builtins.filter (file: builtins.pathExists file) (builtins.attrValues (builtins.readDir dir));
     users = map (path: { name = builtins.baseNameOf (builtins.dirOf path); path = path; }) (findUserdataNixFiles "${builtins.toPath ./}/homes");
 
+
     generateHomeManagerConfig = user: {
       imports = [ user.path ];
       home-manager = {
