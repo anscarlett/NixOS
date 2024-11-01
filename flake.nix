@@ -1,4 +1,3 @@
-
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
@@ -12,13 +11,13 @@
 
   outputs = { nixpkgs, home-manager, nur, ... }: let
     findUserdataNixFiles = dir: builtins.filter (file: builtins.pathExists file) (builtins.attrValues (builtins.readDir dir));
-    users = map (path: { name = builtins.baseNameOf (builtins.dirOf path); path = path; }) (findUserdataNixFiles ./homes);
+    users = map (path: { name = builtins.baseNameOf (builtins.dirOf path); path = path; }) (findUserdataNixFiles "${__curDir}/homes");
 
     generateHomeManagerConfig = user: {
       imports = [ user.path ];
       home-manager = {
         user = user.name;
-        home.stateVersion = "22.05";
+        home.stateVersion = "24.05";
         programs.zsh = {
           enable = true;
           enableCompletion = true;
